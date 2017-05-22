@@ -13,6 +13,7 @@ public class CollectionsTest {
 
     /***
      * 打乱集合中元素的顺序
+     * 洗牌法
      */
     @Test
     public void test1() {
@@ -28,6 +29,10 @@ public class CollectionsTest {
         System.out.println(arrayList);
     }
 
+
+    /***
+     * 一个数组 然后打乱数组中的元素
+     */
     @Test
     public void test2() {
         int[] arr = {1, 2, 3, 5, 7, 9, 11};
@@ -41,6 +46,13 @@ public class CollectionsTest {
             end--;
         }
     }
+
+
+    @Test
+    public void test3() {
+
+    }
+
 
 
 }

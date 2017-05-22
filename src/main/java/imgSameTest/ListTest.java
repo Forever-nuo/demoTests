@@ -43,7 +43,9 @@ public class ListTest {
     @Test
     public void test3() {
         List<Integer> lists =   new ArrayList<Integer>();
-            lists.get(0);
+        for (Integer list : lists) {
+            System.out.println(111);
+        }
     }
 
 }
