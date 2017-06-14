@@ -5,6 +5,8 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by Administrator on 2017/5/17.
@@ -112,9 +114,9 @@ public class StringUtilsDemo {
      *****************/
     @Test
     public void testAbbreviate() {
-        String aaaa2222 = StringUtils.abbreviate("aaaa2222", 8);
+        String aaaa2222 = StringUtils.abbreviate("aaaa2222121234", 11);
         String a1 = StringUtils.abbreviate("aaaa2222", 4);
-    }
+     }
 
 
     /****
@@ -730,8 +732,8 @@ public class StringUtilsDemo {
      */
     @Test
     public void testRemove() {
-        System.out.println( StringUtils.remove("aabbbccaaddd","a"));//bbbccddd
-        System.out.println( StringUtils.remove("aabbbccaaadddda", "aa"));//bbbccadddda
+        System.out.println(StringUtils.remove("aabbbccaaddd", "a"));//bbbccddd
+        System.out.println(StringUtils.remove("aabbbccaaadddda", "aa"));//bbbccadddda
     }
 
     /****
@@ -756,7 +758,7 @@ public class StringUtilsDemo {
 
 
     /***
-     *去除字符串最后一个字符
+     * 去除字符串最后一个字符
      */
     @Test
     public void testChop() {
@@ -765,6 +767,7 @@ public class StringUtilsDemo {
         System.out.println(StringUtils.chop("dddadet\r\n"));//dddadet
         System.out.println(StringUtils.chop("dddadet\r"));//dddadet
     }
+
     /***
      * 替换
      */
@@ -773,7 +776,19 @@ public class StringUtilsDemo {
         /**
          * 替换所有
          */
-        System.out.println(StringUtils.replace("dddffaaacccaa", "aa", "bb"));//dddffbbacccbb
+
+        Pattern compile1 = Pattern.compile("(?<=<img src=\").*?(?=\">)");
+        String content = "aa好的<img src=\"../../file\">真的很的<img src=\"../../file/ooo\">";
+        Matcher matcher = compile1.matcher("aa好的<img src=\"../../file\">真的很的<img src=\"../../file/ooo\">");
+        while (matcher.find()) {
+            System.out.println(matcher.group());
+
+        }
+
+
+
+
+        System.out.println(StringUtils.replace("aa好的<img src=\"../../file\">", "aaa", "bb"));//dddffbbacccbb
 
         /**
          * 替换一次
@@ -808,12 +823,23 @@ public class StringUtilsDemo {
     }
 
 
+    @Test
+    public void testReplaceEach() {
+        String content = "aa好的<img src=\"../../file\" />真的<img src=\"../../file\" />很的<img src=\"../../file/ooo\">";
+        String s = StringUtils.replaceEach(content, new String[]{"<img src=\"../../file\" />","<img src=\"../../file\" />", "<img src=\"../../file/ooo\">"}, new String[]{"../../file","../../file/ooo1", "../../file/ooo"});
+        List<String> list = new ArrayList();
+        String s1 = StringUtils.replaceEach(content, list.toArray(new String[list.size()]), list.toArray(new String[list.size()]));
+       String [] str= new String[]{};
+        System.out.println(str.length);
+    }
+
+
     /***
      * 字符串重复出现
      */
     @Test
     public void testRepeat() {
-        System.out.println(StringUtils.repeat("aaab",3));//aaabaaabaaab
+        System.out.println(StringUtils.repeat("aaab", 3));//aaabaaabaaab
         System.out.println(StringUtils.repeat("", 3));//""
         System.out.println(StringUtils.repeat(null, 3));//null
         System.out.println(StringUtils.repeat("aaab", 0));//""
@@ -833,18 +859,18 @@ public class StringUtilsDemo {
 
     @Test
     public void testRightPad1() {
-        System.out.println(StringUtils.rightPad("dddeeafff",3,"33")); //参数2长度小于 字符串长度 返回本身
-        System.out.println(StringUtils.rightPad("dddeeafff",15,"332")); //参数2 长度大于 字符串长度 右边补全空字符串
-        System.out.println(StringUtils.rightPad(null,15,"333")); //null
+        System.out.println(StringUtils.rightPad("dddeeafff", 3, "33")); //参数2长度小于 字符串长度 返回本身
+        System.out.println(StringUtils.rightPad("dddeeafff", 15, "332")); //参数2 长度大于 字符串长度 右边补全空字符串
+        System.out.println(StringUtils.rightPad(null, 15, "333")); //null
     }
 
     @Test
     public void testCenter1() {
         //补全的字符串 大于原本的字符串  让原本的字符串位于中心
-        System.out.println(StringUtils.center("333",5,"a"));//a333a
-        System.out.println(StringUtils.center("333",6,"a"));//a333aa
+        System.out.println(StringUtils.center("333", 5, "a"));//a333a
+        System.out.println(StringUtils.center("333", 6, "a"));//a333aa
         //长度 小于字符串 返回字符串本身
-        System.out.println(StringUtils.center("333",2,"a"));//333
+        System.out.println(StringUtils.center("333", 2, "a"));//333
     }
 
 
@@ -856,11 +882,20 @@ public class StringUtilsDemo {
 
 
     /***
-     *统计 子字符串在母字符串中出现的次数
+     * 统计 子字符串在母字符串中出现的次数
      */
     @Test
     public void test() {
-        System.out.println(StringUtils.countMatches("aaaddddfffcccaa","aa"));
+        System.out.println(StringUtils.countMatches("aaaddddfffcccaa", "aa"));
     }
 
+
+    @Test
+    public void test11() {
+        String str = "统计 子字符串在母字符串中出现的次数";
+        if(str.length()>=10);
+        String substring =str.length()>=10? str.substring(0, 10)+"...":str;
+
+    }
+    
 }

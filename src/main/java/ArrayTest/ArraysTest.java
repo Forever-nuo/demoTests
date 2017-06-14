@@ -85,5 +85,40 @@ public class ArraysTest {
     }
 
 
+    /***
+     * arrays转换成的list不能增删操作
+     */
+    @Test
+    public void testArraysRemove() {
+            String[] str = {"11","22","33"};
+            String[]  str2 = {"22","33","44"};
+        List<String> strings = Arrays.asList(str);
+        List<String> strings2 = Arrays.asList(str2);
+        strings.removeAll(strings2);
+    }
+
+
+    /***
+     * list中可以添加 null
+     */
+    @Test
+    public void testAddNull() {
+        List list = new ArrayList();
+        list.add(null);
+        list.add(2);
+    }
+
+    @Test
+    public void test56() {
+        List<Integer> list = new ArrayList();
+        list.add(1);
+        list.add(2);
+
+        for (Integer integer : list) {
+            if(integer!=3)
+                list.add(3);
+        }
+    }
+
 
 }
