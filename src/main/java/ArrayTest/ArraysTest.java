@@ -14,7 +14,7 @@ public class ArraysTest {
 
     @Test
     public void test1() {
-            int [] a = {};
+        int[] a = {};
         System.out.println(a.length);
     }
 
@@ -24,7 +24,7 @@ public class ArraysTest {
      */
     @Test
     public void testBinarySearch() {
-        int[] arr = {1,3,6,8,11};
+        int[] arr = {1, 3, 6, 8, 11};
         int i = Arrays.binarySearch(arr, 11);
     }
 
@@ -34,9 +34,9 @@ public class ArraysTest {
      */
     @Test
     public void test2() {
-        Integer [] arr = {};
+        Integer[] arr = {};
         String join = StringUtils.join(arr, ",");
-        List ara =new ArrayList();
+        List ara = new ArrayList();
         String join1 = StringUtils.join(ara, ",");
     }
 
@@ -55,7 +55,7 @@ public class ArraysTest {
      */
     @Test
     public void test4() {
-            int [] x  =  {3,2,5,9,8,7,4,2};
+        int[] x = {3, 2, 5, 9, 8, 7, 4, 2};
 
 /*        for (int i = 0; i < x.length-1; i++) {
             for (int j = i+1; j < x.length; j++) {
@@ -64,24 +64,23 @@ public class ArraysTest {
                     x[i]=x[j];
                     x[j]=temp;
                 }
-
             }
 
         }*/
 
-        for (int i = 0; i < x.length-1; i++) {
-            for (int j = 0; j < x.length-1-i; j++) {
-                if(x[j]>x[j+1]){
+        for (int i = 0; i < x.length - 1; i++) {
+            for (int j = 0; j < x.length - 1 - i; j++) {
+                if (x[j] > x[j + 1]) {
                     int temp = x[j];
-                    x[j]=x[j+1];
-                    x[j+1]=temp;
+                    x[j] = x[j + 1];
+                    x[j + 1] = temp;
                 }
 
             }
 
         }
 
-        System.out.println( x);
+        System.out.println(x);
     }
 
 
@@ -90,8 +89,8 @@ public class ArraysTest {
      */
     @Test
     public void testArraysRemove() {
-            String[] str = {"11","22","33"};
-            String[]  str2 = {"22","33","44"};
+        String[] str = {"11", "22", "33"};
+        String[] str2 = {"22", "33", "44"};
         List<String> strings = Arrays.asList(str);
         List<String> strings2 = Arrays.asList(str2);
         strings.removeAll(strings2);
@@ -115,9 +114,32 @@ public class ArraysTest {
         list.add(2);
 
         for (Integer integer : list) {
-            if(integer!=3)
+            if (integer != 3)
                 list.add(3);
         }
+    }
+
+
+    @Test
+    public void test54() {
+    }
+
+    /***
+     * 测试两个数组是否相等
+     * <p/>
+     * <p/>
+     * 顺序不一样 内容一样  数组也判断不一样
+     */
+    @Test
+    public void testEquals() {
+        String[] str1 = {"ef", "bb", "bf"};
+        String[] str2 = {"bb", "ef", "bf"};
+        String[] str3 = {"ef", "bb", "bf"};
+        boolean equals = Arrays.equals(str1, str2);
+        System.out.println(equals);
+        boolean equals1 = Arrays.equals(str1, str3);
+        System.out.println(equals1);
+
     }
 
 

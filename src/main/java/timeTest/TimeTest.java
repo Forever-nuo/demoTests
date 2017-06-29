@@ -7,7 +7,7 @@ import org.junit.Test;
  */
 public class TimeTest {
     /**
-     *678021354
+     * 678021354
      * 678007023
      * -677915795
      * -677805778
@@ -15,8 +15,8 @@ public class TimeTest {
      */
     @Test
     public void test1() {
-        Integer id ;
-       id= (int)System.currentTimeMillis();//+new Random().nextInt(10000)));
-        System.out.println( id);
+        Integer id;
+        id = (int) System.currentTimeMillis();//+new Random().nextInt(10000)));
+        System.out.println(id);
     }
 }

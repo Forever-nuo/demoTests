@@ -9,6 +9,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
+ * StringUtils的用法演示
  * Created by Administrator on 2017/5/17.
  */
 public class StringUtilsDemo {
@@ -209,6 +210,7 @@ public class StringUtilsDemo {
         String trim = StringUtils.trim("");
         trim = StringUtils.trim(null);
         trim = StringUtils.trim("\t\n\r\f");
+
         trim = StringUtils.trim("     ");
         trim = StringUtils.trim("  333   ");
         trim = StringUtils.trim("  3 3 ");
@@ -238,12 +240,14 @@ public class StringUtilsDemo {
     public void testTrimEmpty() {
         System.out.println(111);
         String trim = StringUtils.trimToEmpty("");
+        System.out.println(trim);
         trim = StringUtils.trimToEmpty(null);
-        trim = StringUtils.trimToEmpty("\b\t\n\r\f");
+        System.out.println(trim);
+     /*   trim = StringUtils.trimToEmpty("\b\t\n\r\f");
         trim = StringUtils.trimToEmpty("     ");
         System.out.println(trim.length());
         trim = StringUtils.trimToEmpty("  333   ");
-        trim = StringUtils.trimToEmpty("  3 3 ");
+        trim = StringUtils.trimToEmpty("  3 3 ");*/
     }
 
 
