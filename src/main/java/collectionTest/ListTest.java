@@ -33,6 +33,7 @@ public class ListTest {
 
     @Test
     public void test3() {
+
         List<String> str = new ArrayList<>();
         str.add("abc");
         str.add("1");
